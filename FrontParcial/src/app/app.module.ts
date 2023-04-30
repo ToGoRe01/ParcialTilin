@@ -15,6 +15,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { ClienteComponent } from './Components/cliente/cliente.component';
 import { FarmacoComponent } from './Components/farmaco/farmaco.component';
 import { FarmaciaComponent } from './Components/farmacia/farmacia.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +40,12 @@ import { FarmaciaComponent } from './Components/farmacia/farmacia.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

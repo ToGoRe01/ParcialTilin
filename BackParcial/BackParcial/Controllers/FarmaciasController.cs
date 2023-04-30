@@ -22,24 +22,24 @@ namespace BackParcial.Controllers
 
         // GET: api/Farmacias
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Farmacia>>> GetFarmacias()
+        public async Task<ActionResult<IEnumerable<Farmacia>>> GetFarmacia()
         {
-          if (_context.Farmacias == null)
+          if (_context.Farmacia == null)
           {
               return NotFound();
           }
-            return await _context.Farmacias.ToListAsync();
+            return await _context.Farmacia.ToListAsync();
         }
 
         // GET: api/Farmacias/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Farmacia>> GetFarmacia(int id)
         {
-          if (_context.Farmacias == null)
+          if (_context.Farmacia == null)
           {
               return NotFound();
           }
-            var farmacia = await _context.Farmacias.FindAsync(id);
+            var farmacia = await _context.Farmacia.FindAsync(id);
 
             if (farmacia == null)
             {
@@ -85,11 +85,11 @@ namespace BackParcial.Controllers
         [HttpPost]
         public async Task<ActionResult<Farmacia>> PostFarmacia(Farmacia farmacia)
         {
-          if (_context.Farmacias == null)
+          if (_context.Farmacia == null)
           {
-              return Problem("Entity set 'RedFarmContext.Farmacias'  is null.");
+              return Problem("Entity set 'RedFarmContext.Farmacia'  is null.");
           }
-            _context.Farmacias.Add(farmacia);
+            _context.Farmacia.Add(farmacia);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetFarmacia", new { id = farmacia.IdFarmacia }, farmacia);
@@ -99,17 +99,17 @@ namespace BackParcial.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteFarmacia(int id)
         {
-            if (_context.Farmacias == null)
+            if (_context.Farmacia == null)
             {
                 return NotFound();
             }
-            var farmacia = await _context.Farmacias.FindAsync(id);
+            var farmacia = await _context.Farmacia.FindAsync(id);
             if (farmacia == null)
             {
                 return NotFound();
             }
 
-            _context.Farmacias.Remove(farmacia);
+            _context.Farmacia.Remove(farmacia);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -117,7 +117,7 @@ namespace BackParcial.Controllers
 
         private bool FarmaciaExists(int id)
         {
-            return (_context.Farmacias?.Any(e => e.IdFarmacia == id)).GetValueOrDefault();
+            return (_context.Farmacia?.Any(e => e.IdFarmacia == id)).GetValueOrDefault();
         }
     }
 }

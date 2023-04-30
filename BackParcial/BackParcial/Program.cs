@@ -2,7 +2,7 @@ using BackParcial.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<RedFarmContext>(options => options.UseSqlServer("Server=HARRISON;Database=RedFarm;Trusted_Connection=True;MultipleActiveResultSets=true"));
+builder.Services.AddDbContext<RedFarmContext>(options => options.UseSqlServer("Server=ToGoRe;Database=RedFarm;Trusted_Connection=True;MultipleActiveResultSets=true"));
 
 // Add services to the container.
 

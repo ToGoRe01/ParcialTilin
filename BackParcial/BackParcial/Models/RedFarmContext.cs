@@ -17,7 +17,7 @@ namespace BackParcial.Models
         }
 
         public virtual DbSet<Cliente> Clientes { get; set; } = null!;
-        public virtual DbSet<Farmacia> Farmacias { get; set; } = null!;
+        public virtual DbSet<Farmacia> Farmacia { get; set; } = null!;
         public virtual DbSet<Farmaco> Farmacos { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -25,7 +25,7 @@ namespace BackParcial.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=HARRISON; Database=RedFarm; Trusted_Connection=True; TrustServerCertificate=Yes ");
+                optionsBuilder.UseSqlServer("Server=ToGoRe; Database=RedFarm; Trusted_Connection=True; TrustServerCertificate=Yes ");
             }
         }
 
@@ -35,7 +35,7 @@ namespace BackParcial.Models
             {
                 entity.HasKey(e => e.IdCliente);
 
-                entity.ToTable("clientes");
+                entity.ToTable("Cliente");
 
                 entity.Property(e => e.IdCliente).HasColumnName("idCliente");
 
@@ -57,14 +57,12 @@ namespace BackParcial.Models
                 entity.Property(e => e.TipoId)
                     .HasMaxLength(50)
                     .IsUnicode(false)
-                    .HasColumnName("tipoID");
+                    .HasColumnName("tipoId");
             });
 
             modelBuilder.Entity<Farmacia>(entity =>
             {
                 entity.HasKey(e => e.IdFarmacia);
-
-                entity.ToTable("farmacias");
 
                 entity.Property(e => e.IdFarmacia).HasColumnName("idFarmacia");
 
@@ -93,13 +91,9 @@ namespace BackParcial.Models
             {
                 entity.HasKey(e => e.IdFarmacos);
 
-                entity.ToTable("farmaco");
+                entity.ToTable("Farmaco");
 
                 entity.Property(e => e.IdFarmacos).HasColumnName("idFarmacos");
-
-                entity.Property(e => e.Cliente).HasColumnName("cliente");
-
-                entity.Property(e => e.Farmacia).HasColumnName("farmacia");
 
                 entity.Property(e => e.Nombre)
                     .HasMaxLength(50)
@@ -119,12 +113,12 @@ namespace BackParcial.Models
                 entity.HasOne(d => d.ClienteNavigation)
                     .WithMany(p => p.Farmacos)
                     .HasForeignKey(d => d.Cliente)
-                    .HasConstraintName("FK_farmaco_clientes");
+                    .HasConstraintName("FK_Farmaco_Cliente");
 
                 entity.HasOne(d => d.FarmaciaNavigation)
                     .WithMany(p => p.Farmacos)
                     .HasForeignKey(d => d.Farmacia)
-                    .HasConstraintName("FK_farmaco_farmacias");
+                    .HasConstraintName("FK_Farmaco_Farmacia");
             });
 
             OnModelCreatingPartial(modelBuilder);

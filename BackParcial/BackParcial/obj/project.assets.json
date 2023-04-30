@@ -10230,19 +10230,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Harrison\\.nuget\\packages\\": {}
+    "C:\\Users\\salma\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Harrison\\Documents\\Plantillas personalizadas de Office\\ParcialTilin\\BackParcial\\BackParcial\\BackParcial.csproj",
+      "projectUniqueName": "C:\\Users\\salma\\Documents\\GitHub\\ParcialTilin\\BackParcial\\BackParcial\\BackParcial.csproj",
       "projectName": "BackParcial",
-      "projectPath": "C:\\Users\\Harrison\\Documents\\Plantillas personalizadas de Office\\ParcialTilin\\BackParcial\\BackParcial\\BackParcial.csproj",
-      "packagesPath": "C:\\Users\\Harrison\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Harrison\\Documents\\Plantillas personalizadas de Office\\ParcialTilin\\BackParcial\\BackParcial\\obj\\",
+      "projectPath": "C:\\Users\\salma\\Documents\\GitHub\\ParcialTilin\\BackParcial\\BackParcial\\BackParcial.csproj",
+      "packagesPath": "C:\\Users\\salma\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\salma\\Documents\\GitHub\\ParcialTilin\\BackParcial\\BackParcial\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Harrison\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\salma\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10306,7 +10306,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
