@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BackParcial.Models;
+using System.Xml.Linq;
 
 namespace BackParcial.Controllers
 {
@@ -31,6 +32,7 @@ namespace BackParcial.Controllers
             return await _context.Farmacia.ToListAsync();
         }
 
+        /*
         // GET: api/Farmacias/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Farmacia>> GetFarmacia(int id)
@@ -48,6 +50,26 @@ namespace BackParcial.Controllers
 
             return farmacia;
         }
+        */
+
+        // GET: api/Farmacias/1234556789
+        [HttpGet("{nit}")]
+        public async Task<ActionResult<Farmacia>> GetFarmacia(string nit)
+        {
+            if (_context.Farmacia == null)
+            {
+                return NotFound();
+            }
+            var farmacia = await _context.Farmacia.FirstOrDefaultAsync(f => f.NitAsociado == nit);
+
+            if (farmacia == null)
+            {
+                return NotFound();
+            }
+
+            return farmacia;
+        }
+        
 
         // PUT: api/Farmacias/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

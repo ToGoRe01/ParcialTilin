@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/Services/api.service';
+import { TableService } from 'src/app/Services/table.service';
 
 @Component({
   selector: 'app-farmacia',
@@ -17,7 +18,7 @@ export class FarmaciaComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public api:ApiService){}
+  constructor(public api:ApiService, public tableService: TableService){}
 
   ngOnInit(): void {
       this.GetFarmacias();
@@ -35,10 +36,9 @@ export class FarmaciaComponent implements OnInit, AfterViewInit {
   public async GetFarmacias() {
     this.data = await this.api.getAll("Farmacias");
     console.log(this.data[0]);
-
     this.loadTable(this.data);
-
     this.dataSource.data = this.data;
+    this.tableService.responseTable = this.data;
     
   }
 
@@ -49,6 +49,8 @@ export class FarmaciaComponent implements OnInit, AfterViewInit {
     for (let i = 0; i < llaves.length; i++) {
       this.displayedColumns.push(llaves[i]);
     }
+    this.tableService.displayedColumnsTable=this.displayedColumns;
+    
   }
 
   applyFilter(event: Event) {

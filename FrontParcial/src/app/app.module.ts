@@ -20,6 +20,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { TableComponent } from './Components/table/table.component';
+import { LoginComponent } from './Components/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +31,9 @@ import { MatSortModule } from '@angular/material/sort';
     MenuComponent,
     ClienteComponent,
     FarmacoComponent,
-    FarmaciaComponent
+    FarmaciaComponent,
+    TableComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,9 @@ import { MatSortModule } from '@angular/material/sort';
     MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
