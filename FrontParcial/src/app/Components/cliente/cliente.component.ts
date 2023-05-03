@@ -27,10 +27,6 @@ export class ClienteComponent implements OnInit, AfterViewInit{
   }
 
   ngAfterViewInit(): void {
-   
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    
   }
 
   public async GetClientes() {

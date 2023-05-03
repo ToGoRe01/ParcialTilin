@@ -32,7 +32,7 @@ namespace BackParcial.Controllers
             return await _context.Farmacia.ToListAsync();
         }
 
-        /*
+        
         // GET: api/Farmacias/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Farmacia>> GetFarmacia(int id)
@@ -50,10 +50,10 @@ namespace BackParcial.Controllers
 
             return farmacia;
         }
-        */
+        
 
         // GET: api/Farmacias/1234556789
-        [HttpGet("{nit}")]
+        [HttpGet("nit/{nit}")]
         public async Task<ActionResult<Farmacia>> GetFarmacia(string nit)
         {
             if (_context.Farmacia == null)

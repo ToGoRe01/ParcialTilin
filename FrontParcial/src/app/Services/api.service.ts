@@ -27,7 +27,7 @@ export class ApiService {
 
   async getLogin(Controller:string, Nit:string){
     var response:any;
-    await this.http.get(this.url+Controller+"/"+Nit).toPromise().then(res=>{
+    await this.http.get(this.url+Controller+"/nit/"+Nit).toPromise().then(res=>{
 
       response=res
 

@@ -26,10 +26,6 @@ export class FarmacoComponent implements OnInit, AfterViewInit{
   }
 
 ngAfterViewInit(): void {
-   
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    
   }
 
   public async GetFarmacos() {
