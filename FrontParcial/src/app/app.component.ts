@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Farmacia';
-  login = true;
+  login = localStorage.getItem('login').valueOf;
+  
 }

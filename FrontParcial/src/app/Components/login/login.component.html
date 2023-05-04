@@ -4,12 +4,18 @@
         <mat-form-field>
           <mat-label>NIT</mat-label>
           <input matInput formControlName="nit" required>
+          <mat-error *ngIf="loginForm.hasError('required')">
+            Campo obligatorio
+          </mat-error>
         </mat-form-field>
         </div>
         <div>
         <mat-form-field>
           <mat-label>Codigo de cajero</mat-label>
           <input matInput formControlName="cajero" type="password" required>
+          <mat-error *ngIf="loginForm.hasError('required')">
+            Campo obligatorio
+          </mat-error>
         </mat-form-field>
         </div>
         

@@ -1,0 +1,44 @@
+
+<form [formGroup]="farmaciaForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" type="text" required>
+        <mat-error *ngIf="farmaciaForm.hasError('required')">
+          Campo obligatorio
+        </mat-error>
+    </mat-form-field>
+    <div>
+        <mat-form-field>
+            <mat-label>Teléfono</mat-label>
+            <input matInput formControlName="tel" type="text" required disable>
+            <mat-error *ngIf="farmaciaForm.hasError('required')">
+              Campo obligatorio
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div>
+    <mat-form-field>
+      <mat-label>NIT</mat-label>
+      <input matInput formControlName="nit" type="text" required>
+      <mat-error *ngIf="farmaciaForm.hasError('minLength(9)') && !farmaciaForm.hasError('required')">
+        NIT invalido
+      </mat-error>
+      <mat-error *ngIf="farmaciaForm.hasError('required')">
+        Campo obligatorio
+      </mat-error>
+    </mat-form-field>
+    </div>
+    
+    <div>
+        <mat-form-field>
+            <mat-label>Cajero</mat-label>
+            <input matInput formControlName="cajero" type="text" required>
+            <mat-error *ngIf="farmaciaForm.hasError('required')">
+              Campo obligatorio
+            </mat-error>
+        </mat-form-field>
+        </div>
+    <div> 
+    <button mat-raised-button color="primary" type="submit">Registrar datos</button>
+    </div>    
+</form>

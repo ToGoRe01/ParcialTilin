@@ -23,6 +23,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { TableComponent } from './Components/table/table.component';
 import { LoginComponent } from './Components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormClienteComponent } from './Components/Forms/form-cliente/form-cliente.component';
+import { FormFarmaciaComponent } from './Components/Forms/form-farmacia/form-farmacia.component';
+import { FormFarmacoComponent } from './Components/Forms/form-farmaco/form-farmaco.component';
 
 
 @NgModule({
@@ -33,7 +36,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FarmacoComponent,
     FarmaciaComponent,
     TableComponent,
-    LoginComponent
+    LoginComponent,
+    FormClienteComponent,
+    FormFarmaciaComponent,
+    FormFarmacoComponent
   ],
   imports: [
     BrowserModule,

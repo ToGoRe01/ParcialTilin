@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/Services/api.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -33,16 +34,17 @@ export class LoginComponent implements OnInit{
     const cajero = this.loginForm.get('cajero').value;
 
     // Envía los datos de inicio de sesión al servidor
-    if (this.api.getLogin("Farmacias", nit)){
-      
-        console.log(this.api.getLogin("Farmacias", nit)); // Maneja la respuesta del servidor
-        this.data = await this.api.getLogin("Farmacias", nit);
-        console.log(Object.keys(this.data[0]));
-
-    }else{
-      
-        console.log("Error"); // Maneja el error en caso de que falle la solicitud
-      
+    if(this.loginForm.valid) {
+      if(nit == "123456789" && cajero == "A123456") {
+        Swal.fire('Felicidades','Ha ingresado con éxito','success');
+        localStorage.setItem('login','si');
+      } else {
+        Swal.fire('Algo ha fallado','Revise las credenciales y vuelva a intentar','error');
+        localStorage.setItem('login','no');
+      }
+    } else {
+      Swal.fire('Datos incorrectos','Ingrese correctamente los campos','error');
+      localStorage.setItem('login','no');
     }
     
   }
