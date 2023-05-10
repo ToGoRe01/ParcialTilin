@@ -1,5 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,19 +29,18 @@ export class ApiService {
 
   async getLogin(Controller:string, Nit:string){
     var response:any;
-    await this.http.get(this.url+Controller+"/nit/"+Nit).toPromise().then(res=>{
-
-      response=res
-
-      }
+    await this.http.get(this.url+Controller+"/nit/"+Nit).toPromise().then(res => {
       
-    )
-
-    return response;
+      response=res
+      
+    }).catch(err => {
+      console.error('Ocurrió un error al obtener información de inicio de sesión de la farmacia', err);
+      return throwError('Algo salió mal');
+    });
     
+    return response;
+
   }
-
-
 }
 
 

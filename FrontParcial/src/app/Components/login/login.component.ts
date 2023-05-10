@@ -11,7 +11,6 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit{
   data: Array<any>;
-  login = this.api.login;
   loginForm: FormGroup;
   dataSource: MatTableDataSource<any> = new MatTableDataSource();
   
@@ -19,7 +18,7 @@ export class LoginComponent implements OnInit{
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      nit: ['', [Validators.required]],
+      nit: ['', [Validators.required,Validators.maxLength(9),Validators.minLength(9)]],
       cajero: ['', [Validators.required]]
     });
     
@@ -32,12 +31,19 @@ export class LoginComponent implements OnInit{
     
     const nit = this.loginForm.get('nit').value;
     const cajero = this.loginForm.get('cajero').value;
+    this.data = await this.api.getLogin("Farmacias", nit);
+    let llaves = Object.values(this.data);
+    const nitCopm:String = llaves[3];
+    const cajCopm:String = llaves[4];
 
     // Envía los datos de inicio de sesión al servidor
     if(this.loginForm.valid) {
-      if(nit == "123456789" && cajero == "A123456") {
+      if(nit == nitCopm && cajero == cajCopm) {
         Swal.fire('Felicidades','Ha ingresado con éxito','success');
         localStorage.setItem('login','si');
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
       } else {
         Swal.fire('Algo ha fallado','Revise las credenciales y vuelva a intentar','error');
         localStorage.setItem('login','no');

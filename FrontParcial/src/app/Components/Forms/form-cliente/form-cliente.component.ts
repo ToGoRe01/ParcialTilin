@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./form-cliente.component.css']
 })
 export class FormClienteComponent implements OnInit{
+  isNameDisabled: boolean = true;
   ngOnInit(): void {
     
   }
@@ -15,7 +16,7 @@ export class FormClienteComponent implements OnInit{
   clienteForm = new FormGroup({
     nombre: new FormControl('', Validators.required),
     tipoid: new FormControl('',[Validators.required,Validators.minLength(2), Validators.maxLength(2)]),
-    registro: new FormControl('',Validators.required),
+    registro: new FormControl({ value: new Date(), disabled: this.isNameDisabled }),
     tipoc: new FormControl('',Validators.required),
     
   });

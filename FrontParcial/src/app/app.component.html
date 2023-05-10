@@ -1,3 +1,3 @@
-<div *ngIf="login; else elseBlock"><app-menu></app-menu></div>
+<div *ngIf="login==true; else elseBlock"><app-menu></app-menu></div>
 <ng-template #elseBlock><app-login></app-login></ng-template>
 

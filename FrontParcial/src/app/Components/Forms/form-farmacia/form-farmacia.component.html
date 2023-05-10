@@ -1,30 +1,33 @@
 
 <form [formGroup]="farmaciaForm" (ngSubmit)="onSubmit()">
     <mat-form-field>
-        <mat-label>Nombre</mat-label>
+        <mat-label>Nombre de la empresa</mat-label>
         <input matInput formControlName="nombre" type="text" required>
-        <mat-error *ngIf="farmaciaForm.hasError('required')">
-          Campo obligatorio
+        <mat-error *ngIf="farmaciaForm.get('nombre').hasError('required')">
+          El nombre de la empresa es requerido
         </mat-error>
     </mat-form-field>
     <div>
         <mat-form-field>
             <mat-label>Teléfono</mat-label>
             <input matInput formControlName="tel" type="text" required disable>
-            <mat-error *ngIf="farmaciaForm.hasError('required')">
-              Campo obligatorio
+            <mat-error *ngIf="farmaciaForm.get('tel').hasError('required')">
+              El teléfono de la empresa es requerido
             </mat-error>
         </mat-form-field>
     </div>
     <div>
     <mat-form-field>
-      <mat-label>NIT</mat-label>
+      <mat-label>NIT de la empresa</mat-label>
       <input matInput formControlName="nit" type="text" required>
-      <mat-error *ngIf="farmaciaForm.hasError('minLength(9)') && !farmaciaForm.hasError('required')">
-        NIT invalido
+      <mat-error *ngIf="farmaciaForm.get('nit').hasError('required')">
+        El NIT es requerido
       </mat-error>
-      <mat-error *ngIf="farmaciaForm.hasError('required')">
-        Campo obligatorio
+      <mat-error *ngIf="farmaciaForm.get('nit').hasError('minlength')">
+        El NIT debe tener al más 9 caracteres
+      </mat-error>
+      <mat-error *ngIf="farmaciaForm.get('nit').hasError('maxlength')">
+        El NIT no debe tener menos de 9 caracteres
       </mat-error>
     </mat-form-field>
     </div>
@@ -33,8 +36,8 @@
         <mat-form-field>
             <mat-label>Cajero</mat-label>
             <input matInput formControlName="cajero" type="text" required>
-            <mat-error *ngIf="farmaciaForm.hasError('required')">
-              Campo obligatorio
+            <mat-error *ngIf="farmaciaForm.get('cajero').hasError('required')">
+              El cajero es requerido
             </mat-error>
         </mat-form-field>
         </div>

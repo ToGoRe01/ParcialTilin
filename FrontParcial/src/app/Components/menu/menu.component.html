@@ -24,6 +24,9 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>RedFarm</span>
+      <form (ngSubmit)="onSubmit()">
+      <button mat-flat-button color="primary" type="submit">Cerrar sesión</button>
+      </form>
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>

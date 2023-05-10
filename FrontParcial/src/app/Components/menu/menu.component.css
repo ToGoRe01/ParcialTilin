@@ -16,8 +16,10 @@
   z-index: 1;
 }
 
-.toolbar{
+.Toolbar{
 
-  background: greenyellow;
+  background: #C1472D;
+  display: flex;
+  justify-content: space-between;
   
 }

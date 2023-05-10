@@ -26,7 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormClienteComponent } from './Components/Forms/form-cliente/form-cliente.component';
 import { FormFarmaciaComponent } from './Components/Forms/form-farmacia/form-farmacia.component';
 import { FormFarmacoComponent } from './Components/Forms/form-farmaco/form-farmaco.component';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -58,7 +58,8 @@ import { FormFarmacoComponent } from './Components/Forms/form-farmaco/form-farma
     MatPaginatorModule,
     MatSortModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

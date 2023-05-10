@@ -3,9 +3,15 @@
         <div>
         <mat-form-field>
           <mat-label>NIT</mat-label>
-          <input matInput formControlName="nit" required>
-          <mat-error *ngIf="loginForm.hasError('required')">
-            Campo obligatorio
+          <input matInput formControlName='nit' required>
+          <mat-error *ngIf="loginForm.get('nit').hasError('required')">
+            El NIT es requerido
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('nit').hasError('minlength')">
+            El NIT debe tener al más 9 caracteres
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('nit').hasError('maxlength')">
+            El NIT no debe tener menos de 9 caracteres
           </mat-error>
         </mat-form-field>
         </div>
@@ -13,8 +19,8 @@
         <mat-form-field>
           <mat-label>Codigo de cajero</mat-label>
           <input matInput formControlName="cajero" type="password" required>
-          <mat-error *ngIf="loginForm.hasError('required')">
-            Campo obligatorio
+          <mat-error *ngIf="loginForm.get('cajero').hasError('required')">
+            El cajero es requerido
           </mat-error>
         </mat-form-field>
         </div>
